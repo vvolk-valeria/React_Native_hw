@@ -46,10 +46,11 @@ export default function App() {
   // });
 
   return (
-
-    // <LoginScreen />
+<>
+    {/* <LoginScreen /> */}
 
     <RegistrationScreen/>
+</>
     // <View style={styles.container} onLayout={onLayoutRootView}>
     //   <Text>Open up App.js to start working on your app!</Text>
     //   <StatusBar style="auto" />

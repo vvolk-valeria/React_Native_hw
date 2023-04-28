@@ -12,6 +12,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+
 const initialState = {
   email: "",
   password: "",
@@ -37,12 +38,12 @@ export default function LoginScreen() {
       <View style={styles.container}>
         <ImageBackground
           style={styles.img}
-          // source={require("../img/bg.png")}
+           source={require('../img/bg.png')}
         >
           <KeyboardAvoidingView 
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{
         ...styles.form,
-        paddingBottom: isShowKeyboard ? 32 : 45,
+        paddingBottom: isShowKeyboard ? 32 : 100,
       }}
         >
             <Text style={styles.title}>Войти</Text>
@@ -91,7 +92,8 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     backgroundColor: "#FFFFFF",
-    borderRadius: 25,
+    borderTopLeftRadius:25,
+    borderTopRightRadius:25,
   },
   img: {
     flex: 1,

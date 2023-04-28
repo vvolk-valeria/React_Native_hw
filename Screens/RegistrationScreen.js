@@ -10,7 +10,9 @@ import {
   ImageBackground,
   Text,
   TouchableOpacity,
+  Dimensions
 } from "react-native";
+import { AntDesign } from '@expo/vector-icons';
 
 const initialState = {
   avatar:'',
@@ -39,12 +41,12 @@ export default function RegistrationScreen() {
       <View style={styles.container}>
         <ImageBackground
           style={styles.img}
-          // source={require("../img/bg.png")}
+          source={require('../img/bg.png')}
         >
           <KeyboardAvoidingView 
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{
         ...styles.form,
-        paddingBottom: isShowKeyboard ? 32 : 100,
+        paddingBottom: isShowKeyboard ? 32 : 45,
       }}
         >
 
@@ -61,7 +63,7 @@ export default function RegistrationScreen() {
               activeOpacity={0.7}
             //  onPress={}
             >
-              
+             <AntDesign name="plus" size={20} color="#E8E8E8" />
             </TouchableOpacity>
 
 
@@ -116,12 +118,13 @@ const styles = StyleSheet.create({
   },
   form: {
     position:"relative",
-    paddingTop: 32,
+    paddingTop: 62,
     paddingBottom: 100,
     paddingLeft: 16,
     paddingRight: 16,
     backgroundColor: "#FFFFFF",
-    borderRadius: 25,
+    borderTopLeftRadius:25,
+    borderTopRightRadius:25,
   },
   img: {
     flex: 1,
@@ -130,6 +133,8 @@ const styles = StyleSheet.create({
   },
   photo:{
     position:"absolute",
+    top:-55,
+    left:Dimensions.get('window').width/2-60,
     borderColor: "#E8E8E8",
     backgroundColor:"#F6F6F6",
     borderRadius: 8,
@@ -137,11 +142,18 @@ const styles = StyleSheet.create({
     height:120,
   },
   btn_add:{
-    width:25,
+    position:"absolute",
+    top:20,
+    right:Dimensions.get('window').width/2-75,
     height:25,
-    borderColor: "#FF6C00",
+    width:25,
+    borderWidth: 1,
+    borderColor: "#BDBDBD",
+   // borderColor:"#FF6C00",
     backgroundColor:"#FFFFFF",
     borderRadius: 50,
+    justifyContent:"center",
+    alignItems:"center",
   },
   input: {
     padding: 16,
