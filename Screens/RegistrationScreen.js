@@ -101,9 +101,9 @@ export default function RegistrationScreen() {
               activeOpacity={0.7}
               onPress={onLogin}
             >
-              <Text style={styles.btnTitle}>Войти</Text>
+              <Text style={styles.btnTitle}>Зарегистрироваться</Text>
             </TouchableOpacity>
-            <Text style={styles.link}>Нет аккаунта? Зарегистрироваться</Text>
+            <Text style={styles.link}>Уже есть аккаунт? Войти</Text>
           </KeyboardAvoidingView>
         </ImageBackground>
       </View>
