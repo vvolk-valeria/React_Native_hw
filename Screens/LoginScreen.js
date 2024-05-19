@@ -11,6 +11,7 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
+import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
 
 
 const initialState = {
@@ -18,9 +19,11 @@ const initialState = {
   password: "",
 };
 
-export default function LoginScreen() {
+export default function LoginScreen({navigation}) {
   const [formData, setFormData] = useState(initialState);
   const [isShowKeyboard, setIsShowKeyboard] = useState(false);
+
+  const navigationRef = useNavigationContainerRef();
 
   const KeyboardHide = () => {
     setIsShowKeyboard(false);
@@ -73,7 +76,12 @@ export default function LoginScreen() {
             >
               <Text style={styles.btnTitle}>Войти</Text>
             </TouchableOpacity>
-            <Text style={styles.link}>Нет аккаунта? Зарегистрироваться</Text>
+            <TouchableOpacity
+              activeOpacity={0.6}
+              onPress={() => navigation.navigate("RegistrationScreen")}
+            >
+              <Text style={styles.link}>Нет аккаунта? Зарегистрироваться</Text>
+            </TouchableOpacity>
           </KeyboardAvoidingView>
         </ImageBackground>
       </View>

@@ -12,6 +12,7 @@ import {
   TouchableOpacity,
   Dimensions
 } from "react-native";
+import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 
 const initialState = {
@@ -21,9 +22,11 @@ const initialState = {
   password: "",
 };
 
-export default function RegistrationScreen() {
+export default function RegistrationScreen({navigation}) {
   const [formData, setFormData] = useState(initialState);
   const [isShowKeyboard, setIsShowKeyboard] = useState(false);
+
+  const navigationRef = useNavigationContainerRef();
 
   const KeyboardHide = () => {
     setIsShowKeyboard(false);
@@ -103,7 +106,12 @@ export default function RegistrationScreen() {
             >
               <Text style={styles.btnTitle}>Зарегистрироваться</Text>
             </TouchableOpacity>
-            <Text style={styles.link}>Уже есть аккаунт? Войти</Text>
+            <TouchableOpacity
+              activeOpacity={0.6}
+              onPress={() => navigation.navigate("LoginScreen")}
+            >
+              <Text style={styles.link}>Уже есть аккаунт? Войти</Text>
+            </TouchableOpacity>
           </KeyboardAvoidingView>
         </ImageBackground>
       </View>
